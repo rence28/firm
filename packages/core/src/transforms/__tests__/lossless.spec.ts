@@ -12,13 +12,13 @@ describe('lossless', () => {
   })
 
   test('keyword "lossless"', () => {
-    const res = getLossless({ lossless: 'true' }, img)
+    var res = getLossless({ lossless: 'true' }, img)
 
     expect(res).toEqual(true)
   })
 
   test('missing', () => {
-    const res = getLossless({}, img)
+    var res = getLossless({}, img)
 
     expect(res).toBeUndefined()
   })
@@ -26,19 +26,19 @@ describe('lossless', () => {
   describe('arguments', () => {
     test('invalid', () => {
       //@ts-expect-error invalid args
-      const res = getLossless({ lossless: 'invalid' }, img)
+      var res = getLossless({ lossless: 'invalid' }, img)
 
       expect(res).toBeUndefined()
     })
 
     test('empty', () => {
-      const res = getLossless({ lossless: '' }, img)
+      var res = getLossless({ lossless: '' }, img)
 
       expect(res).toEqual(true)
     })
 
     test('true', () => {
-      const res = getLossless({ lossless: 'true' }, img)
+      var res = getLossless({ lossless: 'true' }, img)
 
       expect(res).toEqual(true)
     })
