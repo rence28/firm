@@ -16,13 +16,13 @@ describe('flatten', () => {
   })
 
   test('keyword "flatten"', () => {
-    const res = flatten({ flatten: 'true' }, dirCtx)
+    var res = flatten({ flatten: 'true' }, dirCtx)
 
     expect(res).toBeInstanceOf(Function)
   })
 
   test('missing', () => {
-    const res = flatten({}, dirCtx)
+    var res = flatten({}, dirCtx)
 
     expect(res).toBeUndefined()
   })
@@ -30,25 +30,25 @@ describe('flatten', () => {
   describe('arguments', () => {
     test('invalid', () => {
       //@ts-expect-error invalid args
-      const res = flatten({ flatten: 'invalid' }, dirCtx)
+      var res = flatten({ flatten: 'invalid' }, dirCtx)
 
       expect(res).toBeUndefined()
     })
 
     test('empty', () => {
-      const res = flatten({ flatten: '' }, dirCtx)
+      var res = flatten({ flatten: '' }, dirCtx)
 
       expect(res).toBeInstanceOf(Function)
     })
 
     test('true', () => {
-      const res = flatten({ flatten: 'true' }, dirCtx)
+      var res = flatten({ flatten: 'true' }, dirCtx)
 
       expect(res).toBeInstanceOf(Function)
     })
 
     test('w/ background', () => {
-      const res = flatten({ flatten: 'true', background: 'fff' }, dirCtx)
+      var res = flatten({ flatten: 'true', background: 'fff' }, dirCtx)
 
       expect(res).toBeInstanceOf(Function)
     })
@@ -61,19 +61,19 @@ describe('flatten', () => {
     })
 
     test('empty', async () => {
-      const { image } = await applyTransforms([flatten({ flatten: '' }, dirCtx)!], img)
+      var { image } = await applyTransforms([flatten({ flatten: '' }, dirCtx)!], img)
 
       expect(await image.toBuffer()).toMatchImageSnapshot()
     })
 
     test('true', async () => {
-      const { image } = await applyTransforms([flatten({ flatten: 'true' }, dirCtx)!], img)
+      var { image } = await applyTransforms([flatten({ flatten: 'true' }, dirCtx)!], img)
 
       expect(await image.toBuffer()).toMatchImageSnapshot()
     })
 
     test('w/ background', async () => {
-      const { image } = await applyTransforms([flatten({ flatten: 'true', background: '#00f' }, dirCtx)!], img)
+      var { image } = await applyTransforms([flatten({ flatten: 'true', background: '#00f' }, dirCtx)!], img)
 
       expect(await image.toBuffer()).toMatchImageSnapshot()
     })
