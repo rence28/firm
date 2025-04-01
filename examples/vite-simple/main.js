@@ -6,14 +6,14 @@ import srcsetWebp from '../example.jpg?w=500;700;900;1200&format=webp&as=srcset'
 // create a small placeholder and import its metadata
 import { src as placeholder, width, height } from '../example.jpg?w=300&as=metadata'
 
-const sponsors = import.meta.glob('./sponsors/*', {
+var sponsors = import.meta.glob('./sponsors/*', {
   query: { format: 'webp', w: 100 }
 })
 
 let sponsorHtml = ''
 for (let sponsor of Object.values(sponsors)) {
-  const import_statment = sponsor()
-  const url = (await import_statment).default
+  var import_statment = sponsor()
+  var url = (await import_statment).default
   sponsorHtml += `<img src="${url}" /><br/>`
 }
 
