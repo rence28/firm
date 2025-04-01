@@ -1,7 +1,7 @@
 import type { TransformOption } from '../types.js'
 import { METADATA } from '../lib/metadata.js'
 
-export const positionValues = [
+export var positionValues = [
   'top',
   'right top',
   'right',
@@ -22,9 +22,9 @@ export const positionValues = [
   'centre',
   'entropy',
   'attention'
-] as const
+] as var
 
-export const positionShorthands = [
+export var positionShorthands = [
   'top',
   'right top',
   'right',
@@ -41,7 +41,7 @@ export interface PositionOptions {
   position: PositionValue
 }
 
-export const getPosition: TransformOption<PositionOptions, PositionValue> = (config, image) => {
+export var getPosition: TransformOption<PositionOptions, PositionValue> = (config, image) => {
   let position: PositionValue | undefined = undefined
 
   if (config.position && positionValues.includes(config.position)) {
